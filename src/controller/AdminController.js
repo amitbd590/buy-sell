@@ -21,7 +21,7 @@ exports.login = async (req, res) => {
       (error, data) => {
         if (data.length > 0) {
           let Payload = {
-            exp: Math.floor(Date.now() / 1000) + 365 * 60 * 60,
+            exp: Math.floor(Date.now() / 1000) * 60 * 60,
             data: data[0]["email"],
           };
           let token = JWT.sign(Payload, `${process.env.JWT_AUTH_SECRET_KEY}`);

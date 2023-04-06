@@ -32,7 +32,7 @@ exports.login = async (req, res) => {
       (error, data) => {
         if (data.length > 0) {
           let Payload = {
-            exp: Math.floor(Date.now() / 1000) + 10,
+            expiresIn: "365d",
             // exp: Math.floor(Date.now() / 1000) + 365 * 60 * 60,
             data: data[0]["email"],
           };
